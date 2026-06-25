@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
+   //This was Hell in a handbasket to fix, USE INVOKE UNITY EVENTS, NOT SEND MESSAGES!!!
+   //On starting a input give the player a boost, and apply constant force while held
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started){
@@ -35,9 +37,9 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+   //Since we are using a rolling ball instead of tradtional movement, Fixed update is used to keep physics consistent
     private void FixedUpdate()
     {
-        // move player
         if(IsMoving){
         PlayerRb.AddForce(new Vector3(MoveInput.x, 0, MoveInput.y) * MoveValue, ForceMode.Force);
         }
