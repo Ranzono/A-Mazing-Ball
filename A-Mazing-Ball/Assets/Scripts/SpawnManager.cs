@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -11,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     //Finds the camera script, starts the game, and tells the camera it's safe to search for the player.
     //We do thid because the camera would otherwise search and fail before the player is in scene.
     //Camera signal moved within start so the camera can relock after a reset
-    void Start()
+ void Start()
     {
         Camera = GameObject.Find("MainCamera").GetComponent<CameraFollow>();
         StartGame();
@@ -36,11 +37,28 @@ public class SpawnManager : MonoBehaviour
     }
     //This, once finsihed will destroy all players, enemies, and flags in scene.
     //Then will int a new player and all the flags
-    void StartGame()
+    public void StartGame()
     {
+        ClearBoard();
        Instantiate(Player,new Vector3(0, 0.5f, 0), Quaternion.identity);
        Instantiate(Flag1, new Vector3(-3f, 2.25f, -5f), Quaternion.identity);
        Camera.findPlayer();
+    }
+//finds and removes all players, eneimes, and flags.
+    private void ClearBoard()
+    {
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            Destroy(obj);
+        }
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Flag"))
+        {
+            Destroy(obj);
+        }
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(obj);
+        }
     }
 }
 

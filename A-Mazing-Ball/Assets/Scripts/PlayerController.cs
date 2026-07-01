@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     public float ImpulseValue = 10;  
     public float MoveValue = 10;
     private bool IsMoving = false;
+    private SpawnManager spawner;
     void Start()
     {
     PlayerRb = GetComponent<Rigidbody>();
      Debug.Log("PlayerController loaded");
+     spawner = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 
     }
 
@@ -42,6 +44,14 @@ public class PlayerController : MonoBehaviour
     {
         if(IsMoving){
         PlayerRb.AddForce(new Vector3(MoveInput.x, 0, MoveInput.y) * MoveValue, ForceMode.Force);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            spawner.StartGame();
         }
     }
 }
