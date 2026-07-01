@@ -8,18 +8,25 @@ public class CameraFollow : MonoBehaviour
     {
         
     }
-    // LateUpdate is used to avoid jittering
+//This was originally in Start(), but we want the camera to wait to sreach for the player since we have a function to int the player
+public void findPlayer(GameObject obj){
+    Debug.Log("Findplayer run");
+    player = null;
+    Debug.Log(" Player null");
+    player = obj;
+    Debug.Log("player assigned");
+        offset = transform.position - player.transform.position; 
+        Debug.Log("offset set to " + offset);
+}
+ // LateUpdate is used to avoid jittering
     //we stay at an offset so the camera always keeps the player in the same place in frame.
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset; 
+       if (player != null){
+        transform.position = player.transform.position + offset;
+        Debug.Log("Following!");
+       } 
     }
-//This was originally in Start(), but we want the camera to wait to sreach for the player since we have a function to int the player
-public void findPlayer(){
-    Debug.Log("Camera found Player");
-    player = GameObject.FindWithTag("Player");
-        offset = transform.position - player.transform.position; 
-}
 
 }

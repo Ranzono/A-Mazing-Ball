@@ -8,11 +8,18 @@ public class PlayerController : MonoBehaviour
     public float MoveValue = 10;
     private bool IsMoving = false;
     private SpawnManager spawner;
+    private CameraFollow Camera;
+    //Finds the camera script, and tells the camera it's safe to search for the player.
+    //We do this because the camera would otherwise search and fail before the player is in scene.
+    //Camera signal moved within start so the camera can relock after a reset
+    //moved here from spawnmanger beacsue this would finish before the player was loaded
     void Start()
     {
+        Camera = GameObject.Find("MainCamera").GetComponent<CameraFollow>();
     PlayerRb = GetComponent<Rigidbody>();
      Debug.Log("PlayerController loaded");
      spawner = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+     Camera.findPlayer(gameObject);
 
     }
 

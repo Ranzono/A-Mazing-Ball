@@ -8,13 +8,8 @@ public class SpawnManager : MonoBehaviour
    public GameObject Player;
     public GameObject Flag1;
     public GameObject Enemy1;
-  private CameraFollow Camera;
-    //Finds the camera script, starts the game, and tells the camera it's safe to search for the player.
-    //We do thid because the camera would otherwise search and fail before the player is in scene.
-    //Camera signal moved within start so the camera can relock after a reset
  void Start()
     {
-        Camera = GameObject.Find("MainCamera").GetComponent<CameraFollow>();
         StartGame();
     }
 
@@ -42,7 +37,8 @@ public class SpawnManager : MonoBehaviour
         ClearBoard();
        Instantiate(Player,new Vector3(0, 0.5f, 0), Quaternion.identity);
        Instantiate(Flag1, new Vector3(-3f, 2.25f, -5f), Quaternion.identity);
-       Camera.findPlayer();
+    // Camera.findPlayer();
+       
     }
 //finds and removes all players, eneimes, and flags.
     private void ClearBoard()
