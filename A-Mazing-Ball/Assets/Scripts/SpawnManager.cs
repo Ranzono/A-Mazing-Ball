@@ -1,3 +1,4 @@
+using System.Collections;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class SpawnManager : MonoBehaviour
    public GameObject Player;
     public GameObject Flag1;
     public GameObject Enemy1;
+     public GameObject Flag2;
+    public GameObject Enemy2;
  void Start()
     {
         StartGame();
@@ -25,9 +28,14 @@ public class SpawnManager : MonoBehaviour
         switch (flagId){
         case "Flag1":
                  Debug.Log("MATCH! Spawning Enemy1");
-                 Instantiate(Enemy1, new Vector3(10, 1, 5), Quaternion.identity);
+                 Instantiate(Enemy1, new Vector3(-27, 1, 0), Quaternion.identity);
+                break;
+                case "Flag2":
+                Debug.Log("MATCH! Spawning Enemy2");
+                Instantiate(Enemy2, new Vector3(7.5f, 2, 4), Quaternion.identity);
                 break;
         }
+        
             
     }
     //This, once finsihed will destroy all players, enemies, and flags in scene.
@@ -36,8 +44,8 @@ public class SpawnManager : MonoBehaviour
     {
         ClearBoard();
        Instantiate(Player,new Vector3(0, 0.5f, 0), Quaternion.identity);
-       Instantiate(Flag1, new Vector3(-3f, 2.25f, -5f), Quaternion.identity);
-    // Camera.findPlayer();
+       Instantiate(Flag1, new Vector3(-40, 2.25f, 0f), Quaternion.Euler(0, 90, 0));
+       Instantiate(Flag2, new Vector3(0f, 2.22f, -9f), Quaternion.Euler(0, 90, 0));
        
     }
 //finds and removes all players, eneimes, and flags.

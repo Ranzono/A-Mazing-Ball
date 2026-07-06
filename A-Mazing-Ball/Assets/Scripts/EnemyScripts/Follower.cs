@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class Follower : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     //Enemy finds the player and links it own agent
     void Start()
     {

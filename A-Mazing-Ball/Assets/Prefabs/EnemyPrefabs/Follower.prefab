@@ -112,7 +112,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60b15b7723649b4c89f523d6b9b44ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Follower
-  target: {fileID: 4582921981077128773, guid: 2464f63500757d84cb3f1c612e0ea6b5, type: 3}
 --- !u!195 &-7735128497814026192
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   ImpulseValue: 10
-  MoveValue: 10
+  MoveValue: 20
 --- !u!114 &2951615478271004527
 MonoBehaviour:
   m_ObjectHideFlags: 0
