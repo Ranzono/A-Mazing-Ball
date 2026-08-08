@@ -2112,6 +2112,8 @@ MonoBehaviour:
   Enemy1: {fileID: 4578946327998265740, guid: 2b0801a11466b6e449c4de6706419c31, type: 3}
   Flag2: {fileID: 638768317251059123, guid: 5e2567f3b474bd64981119ed61167762, type: 3}
   Enemy2: {fileID: 621694595417524780, guid: fc85b96e73d480c4ca54d17b46c7ebe2, type: 3}
+  Flag3: {fileID: 317404909298464926, guid: c94dbc603edb8114f904f1c8c7df42f2, type: 3}
+  Enemy3: {fileID: 4834409302470760335, guid: 88865ef8e16280642b4ef05b4d76a285, type: 3}
 --- !u!4 &763425893
 Transform:
   m_ObjectHideFlags: 0
