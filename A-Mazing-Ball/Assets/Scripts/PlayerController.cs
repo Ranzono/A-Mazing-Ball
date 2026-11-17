@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 MoveInput;
     public float ImpulseValue = 10;  
     public float MoveValue = 10;
+    public float MaxSpeed;
     private bool IsMoving = false;
     private SpawnManager spawner;
     private CameraFollow Camera;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
      }
      if (context.phase == InputActionPhase.Performed)
         {
+             MoveInput = context.ReadValue<Vector2>();
             IsMoving = true;
         }
         else if(context.phase == InputActionPhase.Canceled)
@@ -51,6 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         if(IsMoving){
         PlayerRb.AddForce(new Vector3(MoveInput.x, 0, MoveInput.y) * MoveValue, ForceMode.Force);
+        }
+        if(PlayerRb.linearVelocity.magnitude > MaxSpeed)
+        {
+            PlayerRb.linearVelocity = PlayerRb.linearVelocity.normalized * MaxSpeed;
         }
     }
 
